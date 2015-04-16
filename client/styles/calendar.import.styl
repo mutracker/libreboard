@@ -1,0 +1,475 @@
+// Currently not used
+
+.calendar-wrapper {
+    background: #f0f0f0;
+    border-radius: 3px;
+    bottom: 10px;
+    top: 0;
+    right: 10px;
+    left: 10px;
+    position: absolute;
+}
+
+.calendar-content {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 86px;
+    border-radius: 3px;
+}
+
+.calendar-header {
+    position: relative;
+}
+
+.calendar-header .button-link {
+    float: left;
+    padding: 6px 12px;
+    margin: 0 4px 0 0;
+}
+
+.calendar-header-toolbar {
+    min-height: 32px;
+    padding: 12px;
+    position: relative;
+}
+
+.calendar-header-toolbar-today {
+    float: left;
+    margin-right: 8px;
+}
+
+.calendar-header-toolbar-nav {
+    float: left;
+}
+
+.calendar-header-toolbar-title {
+    text-align: center;
+    position: absolute;
+    top: 18px;
+    left: 0;
+    right: 0;
+}
+
+.calendar-header-toolbar-type {
+    float: right;
+    margin-right: 8px;
+}
+
+.calendar-header-toolbar-close {
+    margin-top: 2px;
+    float: right;
+    position: relative;
+}
+
+.calendar-header.week-view .week-button, .calendar-header.month-view .month-button, .today-button.on-today {
+    background: #e3e3e3;
+    background: -webkit-linear-gradient(top, #e3e3e3 0, #cfcfcf 100%);
+    background: linear-gradient(to bottom, #e3e3e3 0, #cfcfcf 100%);
+    pointer-events: none;
+    cursor: default;
+}
+
+.calendar-header.week-view .week-button:hover, .calendar-header.month-view .month-button:hover, .today-button.on-today:hover {
+    color: #4d4d4d;
+    border: 1px solid #cecece;
+    border-bottom-color: #a0a0a0;
+}
+
+.calendar-header.month-view .days-of-week {
+    padding-right: 9px;
+}
+
+.calendar-header.month-view .icon-leftarrow, .calendar-header.month-view .icon-rightarrow {
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.days-of-week {
+    display: table;
+}
+
+.days-of-week div {
+    width: 1%;
+    display: table-cell;
+    text-align: center;
+}
+
+.pop-over .calendar-card-composer .list-button-link {
+    width: 163px;
+    margin: 0 8px 8px 0;
+}
+
+.pop-over .calendar-card-composer .pos-button-link {
+    width: 70px;
+    margin-bottom: 8px;
+}
+
+.pop-over .calendar-card-composer .list-button-link {
+    width: 163px;
+    margin: 0 8px 8px 0;
+}
+
+.pop-over .calendar-card-composer .pos-button-link {
+    width: 70px;
+    margin-bottom: 8px;
+}
+
+.day-cell {
+    border: none;
+    height: 140px;
+    padding: 0;
+    position: relative;
+    width: 14%;
+    background: #f0f0f0;
+}
+
+.day-cell h3 {
+    color: #8c8c8c;
+    font-weight: 400;
+}
+
+.day-cell .drop {
+    background-color: #d6d6d6;
+}
+
+.day-cell.current-month .calendar-day {
+    background: #e3e3e3;
+}
+
+.day-cell.current-month .calendar-day:not(.active):hover, .day-cell.current-month .calendar-day.drop {
+    background-color: #d6d6d6;
+}
+
+.day-cell.current-month .calendar-day.today {
+    background-color: #ede5cf;
+}
+
+.day-cell.current-month .calendar-day.today.drop {
+    background-color: #e6dbbc;
+}
+
+.day-cell.current-month h3 {
+    color: #4d4d4d;
+    font-weight: 700;
+}
+
+.calendar-day-spacer-div {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.calendar-day:not(.active) {
+    height: 100%;
+}
+
+.calendar-day:not(.active) .day-header {
+    width: 120%;
+}
+
+.calendar-day {
+    background: #ebebeb;
+    border-radius: 3px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 8px 0 8px 8px;
+    position: relative;
+}
+
+.calendar-day.today {
+    background-color: #ede5cf;
+}
+
+.calendar-day:not(.active):hover {
+    background-color: #dedede;
+    cursor: pointer;
+}
+
+.calendar-day .badge.due-past, .calendar-day .badge.due-soon, .calendar-day .badge.due-future, .calendar-day .badge.due-now {
+    display: none;
+}
+
+.calendar-day .open-card-composer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 5px;
+}
+
+.calendar-day:not(.active) .open-card-composer, .calendar-drag-area .badge.due-past, .calendar-drag-area .badge.due-soon, .calendar-drag-area .badge.due-future, .calendar-drag-area .badge.due-now {
+    display: none;
+}
+
+.day-header {
+    cursor: pointer;
+}
+
+.day-header .close-button {
+    float: right;
+    display: none;
+}
+
+.day-header .date {
+    display: inline-block;
+}
+
+.day-header .date .day-full-month-header {
+    display: none;
+}
+
+.day-header .date div {
+    display: inline;
+}
+
+.day-header .num-cards {
+    display: inline-block;
+    margin-left: 4px;
+    position: relative;
+}
+
+.day-header .num-cards div {
+    display: inline;
+}
+
+.calendar-list-header {
+    display: block;
+    font-weight: 700;
+    margin: 4px 0;
+}
+
+.calendar-day-list {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 0;
+    top: 34px;
+}
+
+.calendar-day.active {
+    -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, .35), 0 0 1px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 6px rgba(0, 0, 0, .35), 0 0 1px rgba(0, 0, 0, .1);
+    min-width: 270px;
+    padding-right: 5px;
+    position: absolute;
+    width: inherit;
+    z-index: 1;
+}
+
+.calendar-day.active .close-button {
+    display: block;
+}
+
+.calendar-day.active .calendar-day-list {
+    right: 3px;
+    padding-right: 3px;
+    bottom: 42px;
+    height: initial;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body:not(.small-window) .week .day-column:last-child .calendar-day.active, body:not(.small-window) .week .day-column:nth-last-child(2) .calendar-day.active, body:not(.small-window) td:last-child .calendar-day.active, body:not(.small-window) td:nth-last-child(2) .calendar-day.active {
+    right: 0;
+}
+
+.calendar-week {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.calendar-week.fancy-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.calendar-week .week-horizontal-canvas {
+    height: 100%;
+}
+
+.calendar-week .week {
+    height: 100%;
+    display: inline-block;
+}
+
+.calendar-week .calendar-day {
+    background: #e3e3e3;
+}
+
+.calendar-week .calendar-day.drop {
+    background-color: #d6d6d6;
+}
+
+.calendar-week .calendar-day.today {
+    background-color: #ede5cf;
+}
+
+.calendar-week .calendar-day.today.drop {
+    background-color: #e6dbbc;
+}
+
+.calendar-week .calendar-day.active {
+    bottom: 4px;
+    top: 4px;
+}
+
+.calendar-week .calendar-day ::-webkit-scrollbar {
+    display: block;
+}
+
+.day-column {
+    position: relative;
+    height: 100%;
+    margin: 0 .5%;
+    float: left;
+    width: 13.28%;
+}
+
+.calendar-table {
+    margin-bottom: 0;
+    border-spacing: 5px;
+    border-collapse: separate;
+}
+
+.calendar-month {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.calendar-month .badges, .calendar-month .list-card-members, .calendar-month .calendar-list-header {
+    display: none;
+}
+
+.calendar-month .calendar-day.active {
+    min-height: 350px;
+}
+
+.calendar-month .calendar-day.active .calendar-list-header, .calendar-month .calendar-day.active .badges, .calendar-month .calendar-day.active .list-card-members {
+    display: block;
+}
+
+
+.small-window .week-button, .small-window .month-button, .small-window .today-button {
+    display: none;
+}
+
+.small-window .calendar-month {
+    overflow-y: hidden;
+}
+
+.small-window .calendar-header .icon-close {
+    display: none;
+}
+
+.small-window .calendar-header.month-view {
+    padding-right: 0;
+}
+
+.small-window .calendar-header-toolbar {
+    padding-bottom: 0;
+}
+
+.small-window .calendar-header-toolbar-nav .right-arrow {
+    position: absolute;
+    right: 9px;
+}
+
+.small-window .calendar-content {
+    top: 70px;
+}
+
+.small-window .fancy-scrollbar {
+    -webkit-overflow-scrolling: initial;
+}
+
+.small-window .day-cell {
+    position: static;
+    height: inherit;
+}
+
+.small-window .calendar-day-spacer-div {
+    position: static;
+}
+
+.small-window .calendar-day:not(.active) {
+    height: 60px;
+}
+
+.small-window .calendar-day.active {
+    top: -70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: initial;
+    position: absolute;
+    min-width: inherit;
+}
+
+.small-window .calendar-day.active .day-full-month-header {
+    display: inline;
+}
+
+.small-window .calendar-day.active .date {
+    font-size: 20px;
+}
+
+.small-window .calendar-day.active .icon-close {
+    position: relative;
+    left: -13px;
+    top: 5px;
+    font-size: 20px;
+}
+
+.small-window .calendar-day.active .calendar-day-list {
+    top: 40px;
+}
+
+.small-window .calendar-day.active .day-header {
+    padding-top: 7px;
+    padding-left: 4px;
+}
+
+.small-window .calendar-day.active .day-month-header {
+    display: none;
+}
+
+.small-window .calendar-day:not(.active) {
+    padding: 0 4px;
+}
+
+.small-window .calendar-day:not(.active) .list-card {
+    display: none;
+}
+
+.small-window .calendar-day:not(.active) .calendar-day-list {
+    position: relative;
+    top: 40px;
+}
+
+.small-window .calendar-day:not(.active) .day-header {
+    z-index: 1;
+    height: 100%;
+}
+
+.small-window .calendar-day:not(.active) .day-header .day-month-header, .small-window .calendar-day:not(.active) .day-header .day-cards-header {
+    display: none;
+}
+
+.small-window .calendar-day:not(.active) .day-header .num-cards {
+    display: block;
+    text-align: center;
+    margin: 0;
+    color: #fff;
+}
+
+.small-window .calendar-day:not(.active) .day-header .day-number-header:not(:empty) {
+    background-color: #1d6087;
+    padding: 7px;
+    border-radius: 10px;
+}

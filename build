@@ -1,0 +1,23 @@
+#!/bin/bash
+
+APP="$(pwd)/.build/bundle"
+SCRIPT="$APP/main.js"
+PID="$APP/libreboard.pid"
+LOG="$APP/libreboard.log"
+
+# meteor build in a directory
+meteor build .build --directory
+
+# npm install dep
+cd $APP
+cd programs/server
+npm install
+
+# exports
+export PORT=5000
+export MONGO_URL="mongodb://localhost:27017/libreboard"
+export ROOT_URL="https://libreboard.com"
+export DISABLE_WEBSOCKETS=true
+
+forever stop $SCRIPT
+forever start -p $APP --pidFile $PID -l $LOG -a -d $SCRIPT

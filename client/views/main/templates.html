@@ -1,0 +1,176 @@
+<head>
+    <title>Libreboard</title>
+    <meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=0">
+    <link rel="shortcut icon" href="/favicon.png" />
+</head>
+
+<template name="StaticLayout">
+    <div id="surface">
+        <div id="content">
+            {{ > yield }}
+        </div>
+    </div>
+</template>
+
+<template name="LandingLayout">
+    {{ > yield }}
+</template>
+
+<template name="layout">
+    {{ > yield "modal" }}
+    <div id="surface">
+        <div id="header">
+            <a href="{{pathFor 'Home'}}" title="{{_ 'header-logo-title'}}" class="header-logo">
+                <span class="header-logo-default"></span>
+           </a>
+            <div class="header-user">
+                <a class="header-btn header-signup" href="{{ pathFor route='Signup' }}">{{_ "sign-up"}}</a>
+                <a class="header-btn header-login js-toggle-login-popover no-right-margin" href="{{ pathFor route='Login' }}">{{_ "log-in"}}</a>
+            </div>
+        </div>
+        {{ > warning }}
+        <div id="content">
+            {{ > yield }}
+        </div>
+    </div>
+</template>
+
+<template name='AuthLayout'>
+    {{ > yield "modal" }}
+    <div id="surface">
+        {{# unless isSandstorm }}
+            <div id="header">
+                <div class="header-boards-button">
+                    <a class="header-btn header-boards js-boards-menu" title="{{_ 'board-list-btn-title'}}" href="{{ pathFor route='Boards' }}">
+                        <span class="header-btn-text">{{_ "boards"}}</span>
+                    </a>
+                </div>
+                {{ > search }}
+                <a href="{{pathFor 'Home'}}" title="{{_ 'header-logo-title'}}" class="header-logo">
+                    <span class="header-logo-default"></span>
+                </a>
+                {{ > memberHeader }}
+            </div>
+        {{/ unless }}
+        {{ > warning }}
+        <div id="content">
+            {{ > yield }}
+        </div>
+    </div>
+</template>
+
+<template name="search">
+    <div id="header-search" class="dn">
+        <label for="search-text">{{_ "gloabal-search"}}</label>
+        <input id="search-text" type="text" autocomplete="off" autocorrect="off" spellcheck="false">
+        <input id="search-submit" type="submit" value="{{ _ 'search'}}">
+        <a class="header-btn header-search js-search-submit" href="#" title="{{ _ 'search-title'}}">
+            <span class="header-btn-icon icon-lg fa fa-search light"></span>
+        </a>
+    </div>
+</template>
+
+<template name="home">
+    <div class="whiteBg">
+        <h1 id="landingLogo">
+            <img src="/logos/logo.png">
+        </h1>
+        <section id="landingFirstSignUpButton" class="landing-section">
+            <div class="width-wrapper tac">
+                <a class="button primary primarys" href="{{ pathFor route='Signup' }}">{{_ 'home-button'}}</a>
+            </div>
+            <div class="layout-twothirds-center tac">
+                <p>
+                    <a href="{{ pathFor route='Login' }}" class="quiet" data-track="Login">{{_ 'home-login'}}</a>
+                    or <a href="https://demo.sandstorm.io/appdemo/m86q05rdvj14yvn78ghaxynqz7u2svw6rnttptxx49g1785cdv1h">try on sandstorm</a>
+                </p>
+            </div>
+        </section>
+    </div>
+    <section id="Team" class="landing-section tac">
+        <div class="section-wrapper">
+            <div class="tac"> <h1>{{_ 'team'}}</h1> </div>
+        </div>
+        <div class="developer">
+            <img src="/developers/yasaricli.png">
+            <h4>Yaşar İçli</h4>
+            <a href="http://yasaricli.com" target='_blank'><i class="fa fa-globe"></i></a>
+            <a href="https://twitter.com/yasaricli" target='_blank'><i class="fa fa-twitter"></i></a>
+            <a href="https://github.com/yasaricli" target='_blank'><i class="fa fa-github"></i></a>
+        </div>
+
+        <div class="developer">
+            <img src="/developers/maxime.png">
+            <h4>Maxime Quandalle</h4>
+            <a href="https://keybase.io/mquandalle" target='_blank'><i class="fa fa-globe"></i></a>
+            <a href="https://twitter.com/MarobaseX" target='_blank'><i class="fa fa-twitter"></i></a>
+            <a href="https://github.com/mquandalle" target='_blank'><i class="fa fa-github"></i></a>
+        </div>
+
+        <hr>
+
+        <a href="http://git.libreboard.com/libreboard/libreboard/">
+            http://git.libreboard.com/libreboard/libreboard
+        </a>
+    </section>
+</template>
+
+<template name='loading'>
+    <div id="header"></div>
+    <div class="tabbed-pane-main-col-loading js-loading-page">
+        <span class="tabbed-pane-main-col-loading-spinner spinner"></span>
+    </div>
+</template>
+
+<template name="notfound">
+    {{ > message label='page-not-found'}}
+</template>
+
+<template name='message'>
+    <div class="big-message quiet {{ color }}">
+        <h1>{{_ label}}</h1>
+        {{#with pathFor route='Login'}}
+            <p>{{{_ 'page-maybe-private' this}}}</p>
+        {{/with}}
+    </div>
+</template>
+
+<template name="warning">
+    {{# if session 'warning' }}
+        <div class="header-banner header-banner-warning">
+            <p class="bottom">
+                <span class="inline-block">{{ warning.desc }}</span>
+                <span class="inline-block">
+                    <a class="button primary" href="{{ pathFor route='Signup' }}" style="margin: 0 4px;">
+                        {{_ 'warning-signup'}}
+                    </a>
+                </span>
+            </p>
+        </div>
+    {{/if}}
+</template>
+
+<template name="popup">
+    <div class="pop-over clearfix {{# unless title}}miniprofile{{/unless}}" style="display: block; left: {{ offset.left }}px; top: {{ offset.top }}px;">
+        <div class="header clearfix">
+            {{#if hasPopupParent}}
+                <a class="back-btn js-back-view" href="#">
+                    <span class="icon-sm fa fa-chevron-left"></span>
+                </a>
+            {{/if}}
+            <span class="header-title">{{ title }}</span>
+            <a class="close-btn js-close-popover" href="#">
+                <span class="icon-sm fa fa-times"></span>
+            </a>
+        </div>
+        <div class="content clearfix fancy-scrollbar js-tab-parent" style="max-height: 549px;">
+            {{> UI.dynamic template=popupName data=dataContext }}
+        </div>
+    </div>
+</template>
+
+<template name="editor">
+    <textarea class="{{class}}" placeholder="{{_ 'comment-placeholder'}}" id="{{id}}" tabindex="1">{{> UI.contentBlock }}</textarea>
+</template>
+
+<template name="viewer">{{#markdown}}{{#emoji}}{{#mentions}}{{> UI.contentBlock }}{{/mentions}}{{/emoji}}{{/markdown}}</template>

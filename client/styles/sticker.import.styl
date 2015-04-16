@@ -1,0 +1,357 @@
+// Currently not used
+
+.sticker {
+    display: block;
+    height: 80px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 80px;
+    z-index: 0;
+    transition: transform 85ms ease-in, opacity 85ms ease-in;
+    user-select: none;
+}
+
+.sticker-image {
+    height: 80px;
+    width: 80px;
+    color: transparent;
+}
+
+.sticker-image:-moz-loading {
+    visibility: hidden;
+}
+
+.sticker-image.hover {
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, .12);
+}
+
+.sticker.fade-out {
+    opacity: 0;
+}
+
+.sticker-controls {
+    height: 80px;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    width: 0;
+    transition: opacity 85ms ease-in;
+}
+
+.sticker-control-btn {
+    background: rgba(0, 0, 0, .5);
+    border-radius: 3px;
+    color: #fff;
+    height: 18px;
+    padding: 6px 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    transition: left .13s ease-in, top .13s ease-in;
+}
+
+.sticker-control-btn:hover {
+    background: rgba(0, 0, 0, .8);
+}
+
+.sticker.editing {
+    z-index: 1;
+}
+
+.sticker.editing .sticker-image {
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, .12);
+}
+
+.sticker.editing .sticker-controls {
+    opacity: 1;
+    width: 100px;
+}
+
+.sticker.editing-disabled {
+    opacity: .5;
+}
+
+.sticker.editing .sticker-controls .sticker-control-btn.rotate-btn {
+    left: 0;
+    top: -40px;
+    transition-duration: 80ms;
+    cursor: move;
+}
+
+.sticker.editing .sticker-controls .sticker-control-btn.move-btn {
+    left: -50px;
+    top: -8px;
+    transition-duration: 115ms;
+    cursor: move;
+}
+
+.sticker.editing .sticker-controls .sticker-control-btn.remove-btn {
+    left: -80px;
+    top: 26px;
+    transition-duration: .15s;
+}
+
+.quick-card-editor.quick-card-editor-editing-stickers .list-card-details {
+    z-index: 0;
+}
+
+.quick-card-editor.invalid,
+.quick-card-editor.invalid .sticker,
+.quick-card-editor.invalid .sticker-controls .sticker-control-btn,
+.quick-card-editor.invalid .sticker-select {
+    cursor: not-allowed;
+}
+
+.quick-card-editor.dragging,
+.quick-card-editor.dragging .sticker,
+.quick-card-editor.dragging .sticker-controls .sticker-control-btn,
+.quick-card-editor.dragging .sticker-select {
+    cursor: move;
+}
+
+.sticker-unselectable .sticker-image {
+    opacity: .5;
+}
+
+.sticker-list {
+    position: relative;
+}
+
+.sticker-list-loading .sticker-select {
+    background: #f5f5f5;
+    border: 2px dotted #d4d4d4;
+    border-radius: 12px;
+}
+
+.sticker-list-loading .sticker-select-image {
+    visibility: hidden;
+}
+
+.sticker-select {
+    box-sizing: border-box;
+    cursor: pointer;
+    cursor: grab;
+    float: left;
+    margin: 0 1% 8px;
+    height: 80px;
+    width: 31%;
+    position: relative;
+    text-align: center;
+}
+
+.sticker-select.disabled {
+    opacity: .4;
+}
+
+.sticker-select-image {
+    height: 80px;
+    width: 80px;
+}
+
+.sticker-select-pending {
+    max-width: 80px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+}
+
+.sticker-select-peel, .sticker-select-shadow {
+    display: none;
+}
+
+.sticker-select.ui-draggable-dragging {
+    height: 80px;
+    width: 80px;
+    cursor: grabbing;
+}
+
+.sticker-select.ui-draggable-dragging .sticker-select-image {
+    height: 80px;
+    width: 80px;
+}
+
+.sticker-select-option {
+    background: rgba(0, 0, 0, .6);
+    border-radius: 3px;
+    color: #e6e6e6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    z-index: 2;
+    padding: 4px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-decoration: none;
+    text-align: left;
+}
+
+.sticker-select-option-icon {
+    color: #e6e6e6;
+    vertical-align: bottom;
+}
+
+.sticker-select-option-delete-button {
+    display: none;
+}
+
+.sticker-select-option-delete-button:hover {
+    background: rgba(0, 0, 0, .85);
+    color: #fff;
+    cursor: pointer;
+}
+
+.sticker-select-option-delete-button:hover .sticker-select-option-icon {
+    color: #fff;
+}
+
+.sticker-select:hover:not(.ui-draggable-dragging) .sticker-select-option-delete-button {
+    display: block;
+}
+
+.sticker-select-upload {
+    background-color: #dcdcdc;
+    border: 1px dashed #b9b9b9;
+    border-radius: 3px;
+    position: relative;
+    opacity: .7;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.sticker-select-upload:hover {
+    opacity: 1;
+}
+
+.sticker-select-upload-icon {
+    height: 100%;
+    line-height: 80px;
+    width: 100%;
+}
+
+.sticker-select-upload-input {
+    bottom: 0;
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.extra-large-window .sticker-select {
+    width: 18%;
+}
+
+.extra-large-window .sticker-select.ui-draggable-dragging {
+    width: 80px;
+}
+
+.chrome .sticker-select-fixed,
+.firefox .sticker-select-fixed,
+.chrome .sticker-select-peel, .firefox .sticker-select-peel {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    backface-visibility: hidden;
+}
+
+.chrome .sticker-select-fixed, .firefox .sticker-select-fixed {
+    clip: rect(0 40px 80px 0);
+}
+
+.chrome .sticker-select-peel, .firefox .sticker-select-peel {
+    clip: rect(0 80px 80px 40px);
+    transform: perspective(300px);
+    transition: transform .2s ease;
+    transform-style: preserve-3d;
+}
+
+.chrome .sticker-select:hover .sticker-select-peel,
+.firefox .sticker-select:hover .sticker-select-peel {
+    transform: perspective(300px) rotateY(-50deg);
+}
+
+.chrome .sticker-select-option, .firefox .sticker-select-option {
+    transform: translateZ(500px);
+}
+
+.chrome .sticker-select.ui-draggable-dragging .sticker-select-peel,
+.firefox .sticker-select.ui-draggable-dragging .sticker-select-peel {
+    display: none;
+}
+
+.chrome .sticker-select.ui-draggable-dragging .sticker-select-fixed,
+.firefox .sticker-select.ui-draggable-dragging .sticker-select-fixed {
+    clip: auto;
+}
+
+.chrome .sticker-select-shadow {
+    clip: rect(0 80px 80px 40px);
+    display: block;
+    position: absolute;
+    left: 0;
+    opacity: .15;
+    top: 0;
+    backface-visibility: hidden;
+    filter: brightness(0) blur(5px);
+    transform: scaleX(1) skewY(0deg);
+    transition: transform .25s ease;
+}
+
+.chrome .sticker-select:hover .sticker-select-shadow {
+    transform: scaleX(.95) skewY(10deg);
+}
+
+.chrome .sticker-select.ui-draggable-dragging .sticker-select-shadow {
+    display: none;
+}
+
+.min-list-width .list-card-cover,
+.min-list-width .list-card.has-cover.has-stickers .list-card-stickers-area .stickers {
+    height: 125px;
+}
+
+.max-list-width .list-card-cover,
+.max-list-width .list-card.has-cover.has-stickers .list-card-stickers-area .stickers {
+    height: 155px;
+}
+
+.list-card-stickers-area {
+    border-radius: 3px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+}
+
+.list-card-stickers-area .stickers {
+    height: 155px;
+    position: relative;
+    width: 100%;
+}
+
+.card.sticker-mode-active {
+    overflow: visible;
+    z-index: 30;
+}
+
+.card.sticker-mode-active p {
+    background: rgba(255, 255, 255, 0);
+    z-index: 0;
+}

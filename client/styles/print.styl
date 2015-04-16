@@ -1,0 +1,156 @@
+@media print {
+    * {
+        text-shadow: none!important;
+    }
+
+    #surface {
+        height: auto!important;
+    }
+
+    body {
+        overflow: visible!important;
+    }
+
+    .attachment-thumbnail,
+    .phenom, img {
+        page-break-before: auto;
+        page-break-after: auto;
+        page-break-inside: avoid;
+        position: relative;
+    }
+
+    #header {
+        display: none;
+    }
+
+    #notification {
+        display: none!important;
+    }
+
+    #board {
+        height: auto!important;
+        margin-left: 8px!important;
+        overflow: visible!important;
+        display: block!important;
+    }
+
+    .list {
+        display: block;
+        float: none;
+        margin-bottom: 16px;
+        max-height: none!important;
+        width: 400px!important;
+    }
+
+    .list-cards {
+        max-height: none!important;
+        -moz-box-flex: 0;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+        -webkit-flex: 0 0 auto;
+        flex: 0 0 auto;
+    }
+
+    .extra-large-window .list, .large-window .list {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        float: none;
+    }
+
+    .list-header .icon-sm {
+        visibility: hidden;
+    }
+
+    .list-header .list-title {
+        margin-left: 12px;
+    }
+
+    .open-card-composer {
+        display: none;
+    }
+
+    .list-card {
+        border: 1px solid #dbdbdb;
+        border-bottom-color: #c2c2c2;
+        width: 340px;
+    }
+
+    .badge, .board-widgets, .list-card-votes, .member .status {
+        display: none;
+    }
+
+    .pop-over, .other-actions, .quiet-actions, .window-sidebar .button-link, .card-detail-desc .quiet-button, .chechklist-new-item, .new-comment {
+        display: none!important;
+    }
+
+    .card-label {
+        color: #4d4d4d;
+    }
+
+    .hide-on-edit, .card-detail-item-add-button {
+        display: none;
+    }
+
+    .checklist-progress-bar {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border: 1px solid #e3e3e3;
+    }
+
+    .checklist-progress-bar-current {
+        height: 7px;
+        margin-top: 1px;
+        border: 1px solid #777;
+    }
+
+    .action-comment {
+        border: 1px solid #dbdbdb;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .editable .current {
+        display: block!important;
+    }
+
+    .editable .edit, .editable .edits-warning {
+        display: none!important;
+    }
+
+    body.window-up #content {
+        display: none;
+    }
+
+    body.window-up #surface {
+        display: none;
+        min-height: initial;
+        height: auto!important;
+    }
+
+    body.window-up .window-overlay {
+        background: #fff;
+        display: block!important;
+        height: auto;
+        overflow: visible;
+        position: relative;
+    }
+
+    body.window-up .window-sidebar, body.window-up .dialog-close-button {
+        display: none;
+    }
+
+    body.window-up .window {
+        position: relative!important;
+        left: auto!important;
+        top: auto!important;
+        width: 700px!important;
+    }
+
+    body.window-up .window input, body.window-up .window textarea {
+        display: none;
+    }
+
+    body.window-up .window-wrapper {
+        background: #fff;
+    }
+}

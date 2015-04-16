@@ -1,0 +1,302 @@
+@import 'nib'
+.body-board-view {
+    background-size: cover;
+    overflow: hidden;
+
+    #header {
+        background: rgba(0, 0, 0, .15);
+    }
+
+    &.body-custom-board-background-tiled {
+        background-size: auto;
+        background-repeat: repeat;
+    }
+}
+
+.body-default-header #header {
+    background: #27709b;
+    background: linear-gradient(to bottom, #27709b 0, #24688f 100%);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1), 0 1px 0 rgba(0, 0, 0, .1);
+}
+
+.body-custom-board-background .board-header-btn:not(.no-edit):hover,
+.body-custom-board-background .sidebar-show-btn:hover {
+    background: rgba(0, 0, 0, .3);
+}
+
+.body-light-board-background #header {
+    background: rgba(0, 0, 0, .35);
+}
+
+.body-light-board-background .board-header-btn:not(.board-header-btn-filter-indicator):not(.board-header-btn-enabled),
+.body-light-board-background .sidebar-show-btn {
+    background: transparent;
+    color: rgba(0, 0, 0, .7);
+
+    .board-header-btn-icon,
+    .icon-sm {
+        color: rgba(0, 0, 0, .7);
+    }
+
+    &:hover {
+        background: rgba(0, 0, 0, .1);
+    }
+}
+
+.body-light-board-background .board-header-btn-enabled, .body-light-board-background .board-header-btn-enabled:hover,
+.body-light-board-background .board-header-btn-enabled .board-header-btn-icon,
+.body-light-board-background .board-header-btn-enabled:hover .board-header-btn-icon {
+    color: rgba(0, 0, 0, .7);
+}
+
+.board-canvas {
+    margin-right: 264px;
+    position: relative;
+    transition-property: margin;
+    transition-duration: .1s;
+    transition-timing-function: ease-in;
+}
+
+#board {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    &.hide {
+        display: none;
+    }
+
+    &::-webkit-scrollbar {
+        height: 13px;
+        width: 13px;
+    }
+
+    &::-webkit-scrollbar-thumb:vertical,
+    &::-webkit-scrollbar-thumb:horizontal {
+        background: rgba(255, 255, 255, .4);
+    }
+
+    &::-webkit-scrollbar-track-piece {
+        background: rgba(0, 0, 0, .15);
+    }
+
+    &::-webkit-scrollbar-button {
+        display: block;
+        height: 5px;
+        width: 5px;
+    }
+}
+
+.body-no-webkit-scrollbars:not(.firefox) #board {
+    padding-bottom: 30px;
+}
+
+.version-tag {
+    color: #fff;
+    height: 30px;
+    line-height: 15px;
+    font-size: 12px;
+    text-align: right;
+    margin: 10px;
+    white-space: pre;
+    opacity: .5;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.extra-large-window .board-wrapper.sidebar-display-wide {
+
+    .board-canvas {
+        margin-right: 464px;
+    }
+
+    .board-widgets {
+        width: 446px;
+    }
+
+    .board-header {
+        padding-right: 500px;
+    }
+
+    .archive-controls {
+        clear: both;
+
+        .archive-search input {
+            width: auto;
+        }
+
+        .archive-switch {
+            float: right;
+            width: auto;
+            z-index: 1;
+        }
+
+    }
+    .archive-content .show-more {
+        clear: both;
+    }
+
+    .board-backgrounds-list .board-background-select,
+    .board-backgrounds-list .board-background-still-uploading {
+        display: inline-block;
+        padding: 0 6px 12px 0;
+        width: 33%;
+
+        &:nth-child(3n - 1) {
+            padding: 0 6px 12px 6px;
+        }
+
+        &:nth-child(3n) {
+            padding: 0 0 12px 6px;
+        }
+    }
+
+
+    .archived-list-card {
+        float: left;
+        width: 50%;
+        padding: 0 0 0 0;
+        min-height: 80px;
+
+        &:nth-child(2n+1) {
+            clear: left;
+        }
+    }
+}
+
+.archive-controls .archive-search {
+    margin: 6px 0 12px 0;
+}
+
+.archive-controls .archive-switch {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 0;
+}
+
+.board-widgets {
+    background: #f0f0f0;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .4);
+    bottom: 0;
+    padding: 12px 6px 0 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition-property: transform, width;
+    transition-duration: .1s;
+    transition-timing-function: ease-in;
+    transform: translateX(0);
+    width: 246px;
+    z-index: 5;
+
+    input[type="text"] {
+        width: 100%;
+    }
+
+    hr {
+        margin: 8px 0;
+    }
+
+    .board-widgets-title {
+        position: relative;
+        transition-property: opacity;
+        transition-duration: .2s;
+        transition-timing-function: ease-in;
+
+        .text {
+            float: left;
+            line-height: 14px;
+            padding: 8px;
+        }
+
+        &.in-frame {
+            height: 46px;
+            opacity: 1;
+            overflow: visible;
+        }
+
+        .board-sidebar-back-btn {
+            background: #dcdcdc;
+            border-top-left-radius: 0;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            border-bottom-left-radius: 0;
+            display: block;
+            font-weight: 700;
+            float: left;
+            line-height: 14px;
+            margin: 0 0 0 4px;
+            padding: 8px 8px 8px 6px;
+            position: relative;
+            text-decoration: none;
+
+            .left-arrow {
+                border-bottom: 15px solid transparent;
+                border-right: 10px solid #dcdcdc;
+                border-top: 15px solid transparent;
+                display: block;
+                height: 0;
+                position: absolute;
+                left: -10px;
+                top: 0;
+                width: 0;
+            }
+        }
+
+        .board-sidebar-back-btn:hover {
+            background: #ccc;
+
+            .left-arrow {
+                border-right-color: #ccc;
+            }
+        }
+    }
+
+    .board-widgets-content-wrapper {
+        overflow: hidden;
+    }
+
+    .board-widgets-content {
+        padding-right: 6px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transition-property: transform, opacity;
+        transition-duration: .12s;
+        transition-timing-function: ease-in;
+        transform: translateX(0);
+
+        &.left-of-frame {
+            overflow: hidden;
+            transform: translateX(-280px);
+        }
+
+        &.right-of-frame {
+            overflow: hidden;
+            transform: translateX(280px);
+        }
+
+        &.default {
+            overflow: hidden;
+
+            &.short {
+                overflow-y: auto;
+            }
+        }
+    }
+}

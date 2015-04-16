@@ -1,0 +1,122 @@
+<template name="boards">
+    <div class="member-boards-view">
+        {{# if starredBoards }}
+            <div class="window-module-title window-module-title-no-divider">
+                <span class="icon-lg window-module-title-icon fa fa-star"></span>
+                <h3>{{_ 'starred-boards'}}</h3>
+            </div>
+            <ul class="board-list gutter js-board-list clearfix">
+                {{# each starredBoards }}
+                    <li class="starred">
+                        <a href="{{ pathFor route='Board' boardId=_id }}" class="js-open-board highlight-icon" style="background-color: {{background.color}};">
+                            <span class="details">
+                                <span class="board-list-item-name">{{ title }}</span>
+                                <span class="icon-sm fa fa-star-o js-star-board icon-star-active"></span>
+                            </span>
+                        </a>
+                    </li>
+                {{/ each }}
+            </ul>
+        {{/ if }}
+        <div class="window-module-title window-module-title-no-divider">
+            <span class="icon-lg window-module-title-icon fa fa-user"></span>
+            <h3>{{_ 'my-boards'}}</h3>
+        </div>
+        <ul class="board-list gutter js-board-list clearfix">
+            {{# each boards }}
+                <li class="{{# if isStarred }}starred{{/ if}}">
+                    <a href="{{ pathFor route='Board' boardId=_id }}" class="js-open-board highlight-icon" style="background-color: {{background.color}};">
+                        <span class="details">
+                            <span class="board-list-item-name">{{ title }}</span>
+                            <span class="icon-sm fa fa-star-o js-star-board {{# if isStarred }}icon-star-active{{/ if}}" title="{{_ 'star-board-title'}}"></span>
+                        </span>
+                    </a>
+                </li>
+            {{ else }}
+                <p class="quiet" style="padding: 8px 12px;">{{_ 'no-boards'}}</p>
+            {{ / each }}
+        </ul>
+    </div>
+</template>
+
+<template name="board">
+    {{# if this }}
+        <div class="board-wrapper {{# unless session 'sidebarIsOpen' }}disabled-all-widgets{{/ unless }}">
+            <div class="board-header clearfix js-board-header">
+                <a href="#" class="board-header-btn board-header-btn-name js-rename-board {{# unless currentUser.isBoardAdmin }}no-edit{{/ unless}}" title="Rename the board.">
+                    <span class="board-header-btn-text"> {{ title }} </span>
+                </a>
+                <div class="board-header-btns left">
+                    {{# unless isSandstorm }}
+                        <a href="#" class="board-header-btn js-star-board {{#if isStarred }}board-header-btn-enabled{{/ if }}" title="{{# if isStarred }}{{_ 'click-to-unstar'}}{{ else }}{{_ 'click-to-star'}}{{/ if }} {{_ 'starred-boards-description'}}">
+                          <span class="board-header-btn-icon icon-sm fa {{#if isStarred }}fa-star{{ else }}fa-star-o{{/if}}"></span>
+                        </a>
+                    {{/ unless }}
+                    {{! XXX Normally we would disable this field for sandstorm, but we keep it until sandstorm implements sharing capabilities }}
+                    <a href="#" class="board-header-btn perms-btn js-change-vis {{# unless currentUser.isBoardAdmin }}no-edit{{/ unless}}" id="permission-level">
+                        <span class="board-header-btn-icon icon-sm fa {{#if isPublic}}fa-globe{{else}}fa-lock{{/if}}"></span>
+                        <span class="board-header-btn-text">{{ _ permission }}</span>
+                    </a>
+                </div>
+                <div class="board-header-btns right">
+                    {{#if Filter.isActive}}
+                        <a class="board-header-btn board-header-btn-filter-indicator js-filter-cards-indicator" title="{{_ 'filter-on-desc'}}">
+                            <span class="board-header-btn-icon icon-sm fa fa-filter"></span><span class="board-header-btn-text underline">{{_ 'filter-on'}}</span>
+                            <span class="board-header-btn-icon-close icon-sm fa fa-times js-filter-card-clear" title="{{_ 'filter-clear'}}"></span>
+                        </a>
+                    {{/if}}
+                </div>
+            </div>
+            {{ > boardWidgets board=this }}
+            {{ > lists board=this }}
+        </div>
+    {{ else }}
+        {{ > message label='board-not-found' color='white'}}
+    {{/if}}
+</template>
+
+<template name="createBoardPopup">
+    <div class="content clearfix fancy-scrollbar js-tab-parent">
+        <form id="CreateBoardForm">
+            <label for="boardNewTitle">{{_ 'title'}}</label>
+            <input id="boardNewTitle" type="text" name="name" class="non-empty js-autofocus" placeholder="{{_ 'bucket-example'}}" autofocus>
+            <p class="quiet js-vis-display">
+                <span class="icon-sm fa fa-globe"></span>{{{_ 'board-public-info'}}}
+            </p>
+            <input type="submit" class="primary wide js-submit" value="{{_ 'create'}}">
+        </form>
+    </div>
+</template>
+
+<template name="boardChangeTitlePopup">
+    <form id="ChangeBoardTitleForm">
+        <label>{{_ 'name'}}</label>
+        <input type="text" class="js-board-name js-autofocus" value="{{ title }}" autofocus>
+        <input type="submit" class="primary wide js-rename-board" value="{{_ 'rename'}}">
+    </form>
+</template>
+
+<template name="boardChangePermissionPopup">
+    <ul class="pop-over-list">
+        <li>
+            <a class="js-select light-hover" name="private">
+                <span class="icon-sm fa fa-lock vis-icon"></span>
+                {{_ 'private'}}
+                {{# if check 'private' }}
+                    <span class="icon-sm fa fa-check"></span>
+                {{/if}}
+                <span class="sub-name">{{_ 'private-desc'}}</span>
+            </a>
+        </li>
+        <li>
+            <a class="js-select light-hover" name="public">
+                <span class="icon-sm fa fa-globe vis-icon"></span>
+                {{_ 'public'}}
+                {{# if check 'public' }}
+                    <span class="icon-sm fa fa-check"></span>
+                {{/if}}
+                <span class="sub-name">{{_ 'public-desc'}}</span>
+            </a>
+        </li>
+    </ul>
+</template>

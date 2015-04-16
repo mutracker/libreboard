@@ -1,0 +1,351 @@
+.inline-member {
+    cursor: pointer;
+}
+
+.inline-member-av {
+    display: inline-block;
+    height: 14px;
+    margin: 0 0 -2px 0;
+    position: relative;
+    width: 14px;
+}
+
+.member {
+    background-color: #dbdbdb;
+    border-radius: 3px;
+    color: #4d4d4d;
+    display: block;
+    float: left;
+    height: 50px;
+    margin: 0 4px 4px 0;
+    overflow: hidden;
+    position: relative;
+    width: 50px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1;
+    text-decoration: none;
+
+    .avatar-initials {
+        background-color: #dbdbdb;
+        color: #444444;
+        font-weight: bold;
+        max-width: 100%;
+        max-height: 100%;
+        font-size: 16px;
+        line-height: 50px;
+        width: 50px;
+    }
+
+    .avatar-image {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    &.extra-small {
+        .avatar-initials {
+            font-size: 9px;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+        }
+
+        .avatar-image {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    &.small {
+        width: 30px;
+        height: 30px;
+
+        .avatar-initials {
+            font-size: 12px;
+            line-height: 30px;
+        }
+    }
+
+    &.large {
+        height: 85px;
+        line-height: 85px;
+        width: 85px;
+
+        .avatar {
+            width: 85px;
+            height: 85px;
+            .avatar-initials {
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 85px;
+                width: 85px;
+            }
+        }
+    }
+}
+
+.member:hover .member-avatar {
+    opacity: .75;
+}
+
+.member.inline {
+    float: none;
+    display: inline-block;
+}
+
+.member-initials {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    height: 30px;
+    left: 0;
+    line-height: 30px;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+
+.member-avatar {
+    height: 30px;
+    width: 30px;
+}
+
+.member-type {
+    bottom: 0;
+    height: 9px;
+    position: absolute;
+    left: 1px;
+    width: 9px;
+    z-index: 3;
+}
+
+.member-type.admin {
+    background-size: 100%;
+}
+
+.member-status {
+    background-color: #b3b3b3;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    bottom: 1px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .3);
+    height: 6px;
+    position: absolute;
+    right: 1px;
+    width: 6px;
+    z-index: 3;
+}
+
+.member-status.active {
+    background: #64c464;
+    background: linear-gradient(to bottom, #64c464 0, #3fa63f 100%);
+    border-color: #daf1da;
+}
+
+.member-status.idle {
+    background: #e4e467;
+    background: linear-gradient(to bottom, #e4e467 0, #c3c322 100%);
+    border-color: #f7f7d4;
+}
+
+.member-status.disconnected {
+    background: #bdbdbd;
+    background: linear-gradient(to bottom, #bdbdbd 0, #9e9e9e 100%);
+    border-color: #ededed;
+}
+
+.member-no-menu:hover {
+    cursor: default;
+}
+
+.member-no-menu:hover .member-avatar {
+    opacity: 1;
+}
+
+.member-deactivated {
+    background: #aaa;
+    opacity: .4;
+}
+
+.member-deactivated .member-initials {
+    color: #111;
+}
+
+.member-deactivated .member-avatar {
+    opacity: .2;
+}
+
+.member-virtual {
+    background: #e3e3e3;
+}
+
+.member-virtual .status {
+    display: none;
+}
+
+.member-virtual .member-initials {
+    color: #777;
+}
+
+.member-large {
+    background-color: #dbdbdb;
+    border: 1px solid #c2c2c2;
+    border-radius: 3px;
+    display: block;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    width: 50px;
+    z-index: 1;
+}
+
+.member-large .member-initials {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    height: 50px;
+    left: 0;
+    line-height: 50px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+}
+
+.member-large .av-btn {
+    border-radius: 3px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    height: 50px;
+    left: 0;
+    line-height: 50px;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 50px;
+    z-index: 2;
+}
+
+.member-large .member-avatar {
+    border-radius: 3px;
+    height: 50px;
+    width: 50px;
+}
+
+.member-large:hover .av-btn.change {
+    opacity: 1;
+    background: rgba(0, 0, 0, .5);
+}
+
+
+.avatar-option {
+    border-radius: 3px;
+    display: block;
+    height: 42px;
+    padding: 4px 0;
+    margin: 8px 0;
+    position: relative;
+    text-decoration: none;
+}
+
+.avatar-option:hover {
+    background: #dcdcdc;
+}
+
+.avatar-option .pic {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    height: 40px;
+    left: 4px;
+    position: absolute;
+    top: 4px;
+    width: 40px;
+}
+
+.avatar-option .pic .member-initials {
+    font-size: 16px;
+    line-height: 40px;
+    height: 40px;
+    width: 40px;
+}
+
+.avatar-option .text {
+    line-height: 42px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: 56px;
+    text-decoration: underline;
+}
+
+.avatar-option .text .icon-sm {
+    display: none;
+    position: absolute;
+    top: 16px;
+    right: 10px;
+}
+
+.avatar-option.active .text .icon-sm {
+    display: block;
+}
+
+.member-profile-info {
+    margin-bottom: 8px;
+}
+
+.member-profile-info .info {
+    margin-left: 40px;
+}
+
+.member-profile-info .info h3 a {
+    text-decoration: none;
+}
+
+.member-profile-info .info h3 a:hover {
+    text-decoration: underline;
+}
+
+.member-account-session {
+    margin: 18px 0;
+}
+
+.member-login {
+    background: #f0f0f0;
+    border: 1px solid #dcdcdc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0 1% 1% 0;
+    overflow: hidden;
+    padding: 8px 10px;
+    position: relative;
+    width: 32%;
+    word-wrap: break-word;
+    vertical-align: top;
+}
+
+.member-login-remove {
+    cursor: pointer;
+    padding: 8px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.small-window .member-login {
+    margin: 0 0 8px;
+    width: 100%;
+}
+
+.manage-member-section {
+    margin-top: 12px;
+}
+
+.manage-member-section h4 {
+    border-bottom: 1px solid #dcdcdc;
+    padding-bottom: 4px;
+}

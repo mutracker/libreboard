@@ -1,0 +1,133 @@
+// Currently not used
+
+.datepicker-select-date,
+.datepicker-select-time {
+    box-sizing: border-box;
+    float: left;
+    width: 50%;
+
+    select {
+        display: none;
+        width: 100%;
+
+        &.show {
+            display: block;
+        }
+    }
+}
+
+.datepicker-select-date {
+    padding-right: 12px;
+}
+
+.datepicker-select-label {
+    margin-bottom: 4px;
+}
+
+.datepicker-select-input {
+    padding: 4px 6px;
+    width: 100%;
+}
+
+.datepicker-confirm-btns .remove-date {
+    float: right;
+    margin-right: 0;
+}
+
+.ui-datepicker-header {
+    position: relative;
+    min-height: 32px;
+}
+
+.ui-datepicker-header a {
+    border-radius: 3px;
+    cursor: pointer;
+    display: block;
+    padding: 6px 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.ui-datepicker-header {
+
+    a:hover {
+        background-color: #dbdbdb;
+    }
+
+    a.ui-datepicker-prev,
+    a.ui-datepicker-next {
+        color: #8c8c8c;
+        text-decoration: underline;
+
+        &:hover {
+            color: #4d4d4d;
+            text-decoration: underline;
+        }
+    }
+
+    a.ui-datepicker-next {
+        left: auto;
+        right: 0;
+        text-align: right;
+    }
+
+    .ui-datepicker-title {
+        padding: 6px 0;
+        margin-bottom: 4px;
+        text-align: center;
+    }
+}
+
+.ui-datepicker-calendar {
+
+    td,
+    th {
+        position: relative;
+        text-align: center;
+        padding: 0;
+        width: 14%;
+
+        a {
+            display: block;
+            padding: 5px;
+            text-decoration: none;
+
+            &:hover {
+                background-color: #e3e3e3;
+                color: #4d4d4d;
+            }
+        }
+    }
+
+    th {
+        padding: 5px;
+    }
+
+    .ui-priority-secondary {
+        background-color: #f0f0f0;
+        color: #8c8c8c;
+
+        &:hover {
+            background-color: #dbdbdb;
+            color: #4d4d4d;
+        }
+    }
+
+    .ui-state-highlight {
+        background: #e3e3e3;
+        color: #4d4d4d;
+
+        &:hover {
+            background-color: #dbdbdb;
+            color: #4d4d4d;
+        }
+    }
+
+    .ui-priority-secondary.ui-state-active:hover,
+    .ui-state-active,
+    .ui-state-active:hover {
+        background: #2e85b8;
+        color: #fff;
+    }
+}

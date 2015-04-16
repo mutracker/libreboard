@@ -1,0 +1,10 @@
+<template name="modal">
+    <div class="window-overlay show">
+        <div class="window show">
+            <div class="window-wrapper clearfix js-tab-parent">
+                <a class="icon-lg fa fa-times dialog-close-button js-close-window" href="#" title="{{_ 'modal-close-title'}}"></a>
+                {{> UI.dynamic template=template }}
+            </div>
+        </div>
+    </div>
+</template>

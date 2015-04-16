@@ -1,0 +1,10 @@
+# text editors
+*~
+*.swp
+
+private/conf.js
+private/production.js
+.meteor-spk
+.tx/
+.DS_Store
+._.DS_Store
